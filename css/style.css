@@ -1,0 +1,196 @@
+/* NOTES */
+/* Design proposal: overlay section text and image by using position: absolute on both elements. Adjust the :nth-of-type(odd) selectors to swap the absolute positioning on each page, using the section as its relative position guide */
+/* Design alternative: images can be displayed as flex objects, with alternating flex-start and flex-end positioning. Text is absolute positioned, alternating between left:0 and right:0. This would allow for the text to be overlayed over the image. */
+
+/* NOTES */
+
+
+
+
+/* CSS VARIABLES */
+:root {
+    --white: rgb(255, 255, 255);
+
+    /* DEFINE BACKGROUND GRADIENT COLOURS */
+    --bg-gradient-primary: rgb(64, 62, 94);
+    --bg-gradient-secondary: rgb(13, 13, 19);
+
+    /* BACKGROUND GRADIENT */
+    --bg-gradient: var(--bg-gradient-primary), var(--bg-gradient-secondary);
+
+    /* FONT GRADIENT */
+    --gradient: linear-gradient(
+        45deg,
+        #845ec2,
+        #d65db1,
+        #ff6f91,
+        #ff9671,
+        #ffc75f,
+        #f9f871
+    );    
+}
+/* CSS VARIABLES */
+
+
+
+
+/* UNIVERSAL STYLES */
+
+/* Document */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    /* Implements standard font across website */
+    font-family: 'Rubik', sans-serif;
+
+    /* Static background visibile across all pages */
+    background: linear-gradient(var(--bg-gradient));
+
+    /* Scroll Settings */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; 
+
+    /* Disable scrollbar */
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+/* Sections */
+section {
+    /* Size */
+    height: 100vh;
+
+    /* Display + Positioning */
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    /* Scroll */
+    scroll-snap-align: start;
+}
+
+    /* Alternates image / text order on every second page */
+section:nth-of-type(odd) .section-image {
+    order: -1;
+}
+
+.section-text {
+    /* Temp */
+    background: var(--white);
+    opacity: 0.5;
+    /* Temp */
+
+    /* Size + dimensions */
+    height: 20vh;
+    width: 50%;
+}
+
+.section-image {
+    /* Temp */
+    background: rgb(138, 37, 37);
+    opacity: 0.5;
+    /* Temp */
+
+    /* Size + dimensions */
+    height: 40vh;
+    width: 50%;
+}
+
+/* Images and SVGs */
+svg {
+    fill: var(--white);
+}
+
+/* UNIVERSAL STYLES */
+
+
+
+
+/* ABSOLUTE POSITIONED CONTENT */
+/* HEADER */
+.header, .footer {
+        /* Temp */
+        background: rgba(255, 255, 255, 0.3);
+        color: var(--white);
+        height: 3vh;
+        /* Temp */
+}
+
+.header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+    /* Website logo ("Chris Adams") */
+    .logo {
+        margin-right: auto;
+    }
+
+    /* Hamburger menu styling */
+    .hamburger-contaier {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hamburger {
+        height: 2px;
+        width: 20px;
+        background-color: var(--white);
+        margin: 5px;
+    }
+
+
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+    .nav {
+        height: 20px;
+        width: 2px;
+        background-color: var(--white);
+        margin: 0 10px;
+    }
+
+.section-title {
+    color: var(--white);
+
+    transform: rotate(90deg);
+    transform-origin: right;
+
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    bottom: 10px;
+    left: calc(100vw -50px);
+}
+/* ABSOLUTE POSITIONED CONTENT */
+
+
+
+
+
