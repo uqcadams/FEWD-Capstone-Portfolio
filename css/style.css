@@ -34,6 +34,16 @@
 
 
 
+/* ANIMATIONS */
+@keyframes bg-animation {
+    0% {background-position: left;}
+    100% {background-position: right;}
+}
+/* ANIMATIONS */
+
+
+
+
 /* UNIVERSAL STYLES */
 
 /* Document */
@@ -82,21 +92,6 @@ section {
     scroll-snap-align: start;
 }
 
-    /* Alternates image / text order on every second page */
-section:nth-of-type(odd) .section-image {
-    order: -1;
-}
-
-.section-text {
-    /* Temp */
-    background: var(--white);
-    opacity: 0.5;
-    /* Temp */
-
-    /* Size + dimensions */
-    height: 20vh;
-    width: 50%;
-}
 
 .section-image {
     /* Temp */
@@ -106,8 +101,125 @@ section:nth-of-type(odd) .section-image {
 
     /* Size + dimensions */
     height: 40vh;
-    width: 50%;
+    width: 55%;
+
+    /* Position */
+    margin-left: 1.5em;
+    z-index: 1; /* positions image under text */
 }
+    /* Alternates image position on every second page */
+    section:nth-of-type(odd) .section-image {
+        margin-left: auto;
+        margin-right: 1.5em;
+    }
+
+
+.section-text {
+    /* Temp */  
+    background: var(--white);
+    opacity: 0.5;
+    /* Temp */
+
+    /* Size + dimensions */
+    height: 20vh;
+    width: 55%;
+
+    /* Position */
+    position: absolute;
+    z-index: 2; /* positions text above image */
+
+    /* Styling */
+    padding: 1em;
+}
+    /* Alternates text position on every second page */
+    section:nth-of-type(even) .section-text {
+        right: 1.5em;
+        
+    }
+
+    section:nth-of-type(odd) .section-text {
+        left: 1.5em;
+    }
+
+    .text {
+        /* Display */
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100%;
+    }
+
+    .text-heading {
+        /* Animated gradient text */
+        background-image: var(--gradient);
+        background-clip: text;
+        color: transparent;
+        background-size: 400%;
+        animation: bg-animation 5s infinite alternate;
+
+        /* Font sizing */
+        font-size: 2.5em;
+    }
+
+    /* Standard styling for divider elements */
+    .text-divider {
+        /* Divider size */
+        height: 3px;
+        width: 40%;
+
+        /* Divider color */
+        background-color: red;
+
+        /* Divider styling*/
+        border-radius: 10px;
+
+        /* Divider spacing */
+        margin: 3px 5px;
+    }
+
+    /* Positioning for middle divider */
+    .text-divider:nth-of-type(2) {
+        background-color: blue;
+        margin: 0 auto;
+    }
+
+    /* Positioning for last divider */
+    .text-divider:nth-of-type(3) {
+        background-color: green;
+        margin-left: auto;
+    }
+
+    .text-blurb {
+        /* Font styling */
+        line-height: 1.5;
+    }
+
+    .text-btn {
+        /* Button display */
+        display: flex;
+
+        /* Button Size */
+        width: 10em;        
+
+        /* Button positioning */
+        padding: 5px;
+
+        /* Button styling */
+        background-color: red;
+        border-radius: 10px;
+    }
+
+    .btn-link {
+        /* Text styling */
+        color: var(--white);
+        text-decoration: none;
+
+        /* Text positioning */
+        margin: auto;
+    }
+
+
 
 /* Images and SVGs */
 svg {
@@ -172,21 +284,71 @@ svg {
         height: 20px;
         width: 2px;
         background-color: var(--white);
-        margin: 0 10px;
+        margin: 0 20px;
+        border-left: 10px solid transparent;
+        transition: 1s;
+    }
+
+    .nav:hover {
+        
+        transform: scale(1.5);
     }
 
 .section-title {
+    /* Font styling */
     color: var(--white);
-
-    transform: rotate(90deg);
-    transform-origin: right;
+    writing-mode: vertical-rl;
 
     margin: 0;
     padding: 0;
 
     position: absolute;
-    bottom: 10px;
-    left: calc(100vw -50px);
+    bottom: 20px;
+    left: 20px;
+}
+
+
+/* BACKGROUND SHAPES */
+.background {
+    /* temp */  /* TEST CANVAS */
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+    /* temp */
+}
+.obj {
+    /* Position */
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 200;  /* TEMP --> Adjust layering later */
+    
+    /* Size */
+    height: 200px;
+    width: 200px;
+
+    /* Style */
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    filter: blur(0.5em);
+
+}
+.obj:nth-of-type(2) {
+    /* Position */
+    top: 150px;
+    left: 150px;
+}
+.obj:nth-of-type(3) {
+    /* Position */
+    top: 200px;
+    left: 200px;
+}
+.obj:nth-of-type(4) {
+    /* Position */
+    top: 250px;
+    left: 250px;
 }
 /* ABSOLUTE POSITIONED CONTENT */
 
