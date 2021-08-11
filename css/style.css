@@ -93,10 +93,10 @@ section {
 }
 
 
-.section-image {
+.section-image-holder {
     /* Temp */
-    background: rgb(138, 37, 37);
-    opacity: 0.5;
+    /* background: rgb(138, 37, 37); */
+    /* opacity: 0.5; */
     /* Temp */
 
     /* Size + dimensions */
@@ -106,22 +106,47 @@ section {
     /* Position */
     margin-left: 1.5em;
     z-index: 1; /* positions image under text */
+    position: relative;
+
+    box-shadow: 3px 3px 15px rgb(0, 0, 0);
+
+    
 }
     /* Alternates image position on every second page */
-    section:nth-of-type(odd) .section-image {
+    section:nth-of-type(odd) .section-image-holder {
         margin-left: auto;
         margin-right: 1.5em;
     }
 
+    .section-image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .image-overlay {
+        background: rgb(0, 0, 0);
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        transition: 1s;
+    }
+
+    .image-overlay:hover {
+        opacity: 0.1;
+
+    }
 
 .section-text {
     /* Temp */  
-    background: var(--white);
-    opacity: 0.5;
+    /* background: var(--white); */
+    /* opacity: 0.5; */
     /* Temp */
 
     /* Size + dimensions */
-    height: 20vh;
+    /* height: 30vh; */
     width: 55%;
 
     /* Position */
@@ -146,8 +171,24 @@ section {
         display: flex;
         flex-flow: column;
         justify-content: space-between;
-        align-items: flex-end;
         height: 100%;
+
+        /* Font color */
+        color: var(--white);
+    }
+
+    section:nth-of-type(even) .text {
+        align-items: flex-end;
+        
+    }
+
+    section:nth-of-type(odd) .text {
+        align-items: flex-start;
+    }
+
+    .text > * {
+        /* Spacing */
+        margin: 10px;
     }
 
     .text-heading {
@@ -163,13 +204,17 @@ section {
     }
 
     /* Standard styling for divider elements */
+    .dividers {
+        width: 50%;
+    }
+
     .text-divider {
         /* Divider size */
         height: 3px;
         width: 40%;
 
         /* Divider color */
-        background-color: red;
+        background-color: rgb(255, 255, 255);
 
         /* Divider styling*/
         border-radius: 10px;
@@ -180,20 +225,26 @@ section {
 
     /* Positioning for middle divider */
     .text-divider:nth-of-type(2) {
-        background-color: blue;
+        background-color: rgb(255, 255, 255);
         margin: 0 auto;
     }
 
     /* Positioning for last divider */
     .text-divider:nth-of-type(3) {
-        background-color: green;
+        background-color: rgb(255, 255, 255);
         margin-left: auto;
     }
 
     .text-blurb {
         /* Font styling */
         line-height: 1.5;
+        font-weight: 200;
     }
+
+    section:nth-of-type(even) .text-blurb {
+        text-align: right;
+    }
+
 
     .text-btn {
         /* Button display */
@@ -206,7 +257,8 @@ section {
         padding: 5px;
 
         /* Button styling */
-        background-color: red;
+        background-image: var(--gradient);
+        animation: bg-animation 5s infinite alternate;
         border-radius: 10px;
     }
 
@@ -214,6 +266,7 @@ section {
         /* Text styling */
         color: var(--white);
         text-decoration: none;
+        text-transform: uppercase;
 
         /* Text positioning */
         margin: auto;
@@ -233,25 +286,63 @@ svg {
 
 /* ABSOLUTE POSITIONED CONTENT */
 /* HEADER */
+
+/* :is(.header, .footer) * {
+    border: 1px solid red;
+} */
+
 .header, .footer {
         /* Temp */
-        background: rgba(255, 255, 255, 0.3);
-        color: var(--white);
-        height: 3vh;
+        /* background: rgba(255, 255, 255, 0.3); */
+        /* border: 1px solid red; */
         /* Temp */
+
+
+        /* Size */
+        margin: 10px 0;
+
+        /* Styling */
+        color: var(--white);
 }
 
 .header {
-    display: flex;
+    /* Position */
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
+
+    /* Display */
+    display: flex;
+    align-items: center;
+
+    z-index: 500;
 }
+
+    .header > div:not(.logo) {
+        /* Position */
+        margin-right: 15px;
+    }
 
     /* Website logo ("Chris Adams") */
     .logo {
+        /* Position */
+        margin-left: 15px;
         margin-right: auto;
+
+        /* Font Styling */
+        font-size: 1.5em;
+    }
+
+    .social-media {
+        display: grid;
+        place-items: center;
+        
+    }
+
+    .social-media a {
+        display: block;
+        cursor: pointer;
     }
 
     /* Hamburger menu styling */
@@ -285,13 +376,12 @@ svg {
         width: 2px;
         background-color: var(--white);
         margin: 0 20px;
-        border-left: 10px solid transparent;
+        
         transition: 1s;
     }
 
     .nav:hover {
-        
-        transform: scale(1.5);
+        height: 60px;
     }
 
 .section-title {
@@ -308,48 +398,6 @@ svg {
 }
 
 
-/* BACKGROUND SHAPES */
-.background {
-    /* temp */  /* TEST CANVAS */
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 100%;
-    z-index: 100;
-    /* temp */
-}
-.obj {
-    /* Position */
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    z-index: 200;  /* TEMP --> Adjust layering later */
-    
-    /* Size */
-    height: 200px;
-    width: 200px;
-
-    /* Style */
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    filter: blur(0.5em);
-
-}
-.obj:nth-of-type(2) {
-    /* Position */
-    top: 150px;
-    left: 150px;
-}
-.obj:nth-of-type(3) {
-    /* Position */
-    top: 200px;
-    left: 200px;
-}
-.obj:nth-of-type(4) {
-    /* Position */
-    top: 250px;
-    left: 250px;
-}
 /* ABSOLUTE POSITIONED CONTENT */
 
 
