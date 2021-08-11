@@ -9,42 +9,50 @@
     z-index: -100;
     /* temp */
 }
-.obj {
+.circle {
     /* Position */
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 10%;
+    left: 10%;
     z-index: -100;  /* TEMP --> Adjust layering later */
-    
-    /* Size */
-    height: 300px;
-    width: 300px;
 
     /* Style */
-    background-color: rgba(177, 149, 59, 0.158);
+    background-color: rgba(255, 255, 255, 0.158);
     border-radius: 50%;
     filter: blur(5em);
 
     /* Animation */
-    animation: circle-animate 5s infinite alternate;
+    animation: circle-animate-1 5s infinite alternate;
 }
-.obj:nth-of-type(2) {
+.circle:nth-of-type(2) {
     /* Position */
-    top: 150px;
-    left: 150px;
+    top: 80%;
+    left: 80%;
+    filter: blur(5em);
+
+    /* Animation */
+    animation: circle-animate-2 4s infinite alternate;
 }
-.obj:nth-of-type(3) {
+.circle:nth-of-type(3) {
     /* Position */
-    top: 200px;
-    left: 200px;
+    top: 60%;
+    left: 30%;
+    filter: blur(5em);
+
+    /* Animation */
+    animation: circle-animate-3 7s infinite alternate;
 }
-.obj:nth-of-type(4) {
+.circle:nth-of-type(4) {
     /* Position */
-    top: 250px;
-    left: 250px;
+    top: 40%;
+    left: 10%;
+    filter: blur(5em);
+
+    /* Animation */
+    animation: circle-animate-4 9s infinite alternate;
 }
 
-@keyframes circle-animate {
+@keyframes circle-animate-1 {
     0% {
         width: 300px;
         height: 300px;
@@ -53,4 +61,86 @@
         width: 600px;
         height: 600px;
     }
+}
+
+@keyframes circle-animate-2 {
+    0% {
+        width: 200px;
+        height: 200px;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@keyframes circle-animate-3 {
+    0% {
+        width: 100px;
+        height: 100px;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@keyframes circle-animate-4 {
+    0% {
+        width: 200px;
+        height: 200px;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+
+
+
+/* H-RECTANGLES */
+
+.h-rectangle {
+    /* Position */
+    position: absolute;
+    top: 10%;
+    left: 0;
+    z-index: -100;  /* TEMP --> Adjust layering later */
+
+    /* Size */
+    width: 130%;
+    height: 10%;
+
+    /* Style */
+    background-color: rgba(61, 74, 128, 0.157);
+    filter: blur(0.3em);
+}
+
+.h-rectangle:nth-of-type(2) {
+    /* Position */
+    top: 23%;
+
+    /* Size */
+    width: 100%;
+    height: 7%;
+}
+
+.h-rectangle:nth-of-type(3) {
+    /* Position */
+    top: 33%;
+
+    /* Size */
+    width: 100%;
+    height: 5%;
+}
+
+.h-rectangle:nth-of-type(4) {
+    /* Position */
+    top: 41%;
+
+    /* Size */
+    width: 100%;
+    height: 3%;
 }
