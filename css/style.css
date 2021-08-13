@@ -106,6 +106,7 @@ section {
     /* Size + dimensions */
     height: 75vh;
     width: 60%;
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
 
     /* Position */
     margin-left: 1.5em;
@@ -121,7 +122,7 @@ section {
     border-image-source: var(--gradient);
 
     /* Animation */
-    transition: width 2s;
+    transition:  2s;
 }
 
 
@@ -186,6 +187,7 @@ section {
     /* ANIMATING SECTION TEXT AREA */
 
     .section-image-holder:hover {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
         width: calc(100% - 3em);
         background: white;
 
@@ -224,13 +226,31 @@ section {
 
     .section-image-holder:hover .image-overlay {
         opacity: 0.2;
+    } */
+
+   .section-image-holder:hover + .section-text > .text {
+        /* background-color: rgba(0, 0, 0, 0.5);
+        width: calc(80% - 4em);
+        transition: 2s;    
+        transform: translateY(-200px);
+        height: 75vh; */
+        transition: 2s;
+        opacity: 0;
+        z-index: -1;
     }
 
-    .section-image-holder:hover ~ .section-text {
-        background-color: rgba(0, 0, 0, 0.5);
-        width: calc(100% - 4em);
-        transition: 2s;   
-    } */
+    .section-image-holder:hover + .section-text > .text-full {
+        /* background-color: rgba(0, 0, 0, 0.5);
+        width: calc(80% - 4em);
+        transition: 2s;    
+        transform: translateY(-200px);
+        height: 75vh; */
+        transition: 8s;
+        opacity: 1;
+        z-index: 1;
+    }
+
+
 
 
 
@@ -238,14 +258,15 @@ section {
 .section-text {
     /* Temp */  
     /* background: black; */
-    /* background-color: rgba(0,0,0,0.5);
-    max-width: 50ch; */
+    /* background-color: rgba(0,0,0,0.5); */
+    border: 1px solid greenyellow;
     /* opacity: 0.5; */
+    transition:height 2s;
     /* Temp */
 
     /* Size + dimensions */
-    /* height: 30vh; */
-    width: 70%;
+    height: 75vh;
+    width: calc(70% - 2.7em);
 
     /* Position */
     position: absolute;
@@ -265,10 +286,14 @@ section {
     }
 
     .text {
+        /* temp */
+        border: 1px solid red;
+        /* temp */
+
         /* Display */
         display: flex;
         flex-flow: column;
-        justify-content: space-between;
+        justify-content: center;
         height: 100%;
 
         /* Font color */
@@ -285,6 +310,10 @@ section {
     }
 
     .text > * {
+        /* temp */
+        /* border: 1px solid red; */
+        /* temp */
+
         /* Spacing */
         margin: 10px;
     }
@@ -294,6 +323,10 @@ section {
     }
 
     .text-heading {
+        /* temp */
+        /* border: 1px solid red; */
+        /* temp */
+        
         /* Animated gradient text */
         background-image: var(--gradient);
         background-clip: text;
@@ -342,6 +375,10 @@ section {
         width: 60%;
     }
 
+    .hidden {
+        display: none;
+    }
+
 
     .text-btn {
         /* Button display */
@@ -369,6 +406,38 @@ section {
 
         /* Text positioning */
         margin: auto;
+    }
+
+    .text-full {
+        /* temp */
+        border: 3px solid blue;
+        opacity: 1;
+        color: white;
+        /* temp */
+        position: absolute;
+        height: calc(100% - 2em);
+        width: calc(100% - 2em);
+        /* opacity: 0; */
+        
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+    }
+
+    .text-full-header {
+        border: 1px solid greenyellow;
+    }
+
+    .text-full-description {
+        /* temp */
+        border: 1px solid red;
+        /* temp */
+        height: 100%;
+    }
+
+    .text-full > .text-btn {
+        /* Button position */
+        margin-top: 0;
     }
 
 
