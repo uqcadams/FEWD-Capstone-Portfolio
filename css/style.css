@@ -214,27 +214,57 @@ section {
     }
 
 
-   .section-image-holder:hover + .section-text > .text {
+    /* RESTORE */
+   /* .section-image-holder:hover + .section-text > .text { */
         /* background-color: rgba(0, 0, 0, 0.5);
         width: calc(80% - 4em);
         transition: 2s;    
         transform: translateY(-200px);
         height: 75vh; */
-        transition: 2s;
+        /* transition: 2s;
+        opacity: 0;
+        z-index: -1;
+    } */
+
+    /* .section-image-holder:hover + .section-text > .text-full { */
+        /* background-color: rgba(0, 0, 0, 0.5);
+        width: calc(80% - 4em);
+        transition: 2s;    
+        transform: translateY(-200px);
+        height: 75vh; */
+        /* transition: 8s;
+        opacity: 1;
+        z-index: 1;
+    } */
+    /* RESTORE */
+
+
+    /* TEMP */
+    .section-text {
+        background: white;
+    }
+
+    .section-image-holder + .section-text > .text {
+        /* background-color: rgba(0, 0, 0, 0.5);
+        width: calc(80% - 4em);
+        transition: 2s;    
+        transform: translateY(-200px);
+        height: 75vh; */
+        
         opacity: 0;
         z-index: -1;
     }
 
-    .section-image-holder:hover + .section-text > .text-full {
+    .section-image-holder + .section-text > .text-full {
         /* background-color: rgba(0, 0, 0, 0.5);
         width: calc(80% - 4em);
         transition: 2s;    
         transform: translateY(-200px);
         height: 75vh; */
-        transition: 8s;
         opacity: 1;
         z-index: 1;
     }
+    /* TEMP */
 
 
 .section-text {
@@ -493,6 +523,28 @@ section {
     .text-full > .text-btn {
         /* Button position */
         margin-top: 0;
+    }
+
+    .contact-form {
+        /* Display */
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+
+        /* Position and spacing */
+        max-width: 20em;
+        margin: 0 1.5em 0 0.5em;
+
+        /* Font styling */
+        font-size: 0.75em;
+    }
+
+    .contact-form > input, select, textarea {
+        margin-bottom: 1em;
+    }
+
+    .contact-form > input:last-child {
+        margin-top: 2em;
     }
 
 
