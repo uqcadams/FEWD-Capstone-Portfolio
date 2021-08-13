@@ -35,9 +35,17 @@
         </div>
         <div class="hamburger-container">
             <div class="hamburger" id="top"></div>
+            <div class="hamburger" id="mid"></div>
             <div class="hamburger" id="bottom"></div>
         </div>
     </header>  
+
+    <section class="menu">
+        <a class="menu-home gradient-text" href="#home">Home</a>
+        <a class="menu-about gradient-text" href="#about">About Me</div>
+        <a class="menu-portfolio gradient-text" href="#portfolio-1">Portfolio</a>
+        <a class="menu-contact gradient-text" href="#contact" onclick="closeHamburgerMenu();">Contact</a>
+    </section>
 
     <section id="home">
         
@@ -55,9 +63,6 @@
                     <div class="text-divider"></div>
                 </div>
                 <p class="text-blurb">Web Designer / Teacher / Academic /  Educator</p>
-                <!-- <div class="text-btn">
-                    <a href="http://www.google.com" target="_blank" class="btn-link">Learn More</a>
-                </div> -->
             </div>
         </div>
 
@@ -80,17 +85,15 @@
                 </div>
                 <div class="text-full-description">
                     <p>Hi. I'm Chris.</p>
-                    <img src="img/profile.jpg" class="text-full-img" alt="">
                     <p>Educator. Scuba Diver. Photographer. Traveller. Political Advisor. Web Designer.</p>
-                    <p>Over the years I've worn a number of different hats, lived on four continents, and met a lot of people.</p>
-                    <p>Now based in Brisbane, I've been transforming my skillset for the post-Covid world.</p>
+                    <div class="text-main-description"><img src="img/profile.jpg" class="text-full-img" alt="">Over the years I've worn a number of different hats, lived on four continents, and met a lot of people. Now based in Brisbane, I've been transforming my skillset for the post-Covid world.</div>
                     <p>Find out more</p>
                 </div>
                 <div class="text-btn">
                     <a class="btn-link">Close</a>
                 </div>
             </div>
-            <div class="text">
+            <div class="text visible">
                 <h2 class="text-heading">ABOUT ME</h2>
                 <div class="dividers">
                     <div class="text-divider"></div>
@@ -120,8 +123,7 @@
                 </div>
                 <div class="text-full-description">
                     <p>"A simple WebApp to present, sort, and filter employee information using the Fetch API."</p>
-                    <img src="img/profile.jpg" class="text-full-img" alt="">
-                    <p>This project fetches data from the Random User Generator API to dynamically build an interactive employee directory. Employees can be filtered within the browser, and more information can be access via an engaging modal display.</p>
+                    <div class="text-main-description"><img src="img/profile.jpg" class="text-full-img" alt="">This project fetches data from the Random User Generator API to dynamically build an interactive employee directory. Employees can be filtered within the browser, and more information can be access via an engaging modal display.</div>
                     <p><a href="#">Click here</a> to view the site in action, or alternatively <a href="#">explore the source code</a> in the GitHub repo. </p>
                 </div>
                 <div class="text-btn">
@@ -158,9 +160,8 @@
                     </div>
                 </div>
                 <div class="text-full-description">
-                    <p>"A simple WebApp to present, sort, and filter employee information using the Fetch API."</p>
-                    <img src="img/profile.jpg" class="text-full-img" alt="">
-                    <p>This project fetches data from the Random User Generator API to dynamically build an interactive employee directory. Employees can be filtered within the browser, and more information can be access via an engaging modal display.</p>
+                    <p>An interactive dashboard for visualising data using JavaScript and SVG animations.</p>
+                    <div class="text-main-description"><img src="img/profile.jpg" class="text-full-img" alt="">This dashboard application displays detailed user information through a number of interactive data visualisations. Built to accommodate mobile, tablet, and desktop displays, it utilises CSS Grid to adjust and update content layout according to the current viewport size.</div>
                     <p><a href="#">Click here</a> to view the site in action, or alternatively <a href="#">explore the source code</a> in the GitHub repo. </p>
                 </div>
                 <div class="text-btn">
@@ -196,9 +197,8 @@
                     </div>
                 </div>
                 <div class="text-full-description">
-                    <p>"A simple WebApp to present, sort, and filter employee information using the Fetch API."</p>
-                    <img src="img/profile.jpg" class="text-full-img" alt="">
-                    <p>This project fetches data from the Random User Generator API to dynamically build an interactive employee directory. Employees can be filtered within the browser, and more information can be access via an engaging modal display.</p>
+                    <p>"A JavaScript-driven word guessing game following traditional hangman rules."</p>
+                    <div class="text-main-description"><img src="img/profile.jpg" class="text-full-img" alt="">This WebApp uses JavaScript to dynamically present a randomly chosen phrase in the DOM, and uses onscreen click events to allow users to select letters that may or may not appear within the phrase. Players are allowed to make five incorrect guesses before losing the game. </div>
                     <p><a href="#">Click here</a> to view the site in action, or alternatively <a href="#">explore the source code</a> in the GitHub repo. </p>
                 </div>
                 <div class="text-btn">
@@ -234,10 +234,12 @@
                     </div>
                 </div>
                 <div class="text-full-description">
-                    <p>"A simple WebApp to present, sort, and filter employee information using the Fetch API."</p>
-                    <img src="img/profile.jpg" class="text-full-img" alt="">
-                    <p>This project fetches data from the Random User Generator API to dynamically build an interactive employee directory. Employees can be filtered within the browser, and more information can be access via an engaging modal display.</p>
-                    <p><a href="#">Click here</a> to view the site in action, or alternatively <a href="#">explore the source code</a> in the GitHub repo. </p>
+                    <p>"An interactive and searchable photo gallery built with CSS Grid and Javascript."</p>
+                    
+                    <div class="text-main-description"><img src="img/profile.jpg" class="text-full-img" alt="">This project displays a series of selected photographs in a structured grid layout. Images can be filtered according to assigned tags, and displayed in a lightbox slider. The interface is updated and adjusted based on image selection.</div>
+                    <div class="links">
+                        <p><a href="#">Click here</a> to view the site in action, or alternatively <a href="#">explore the source code</a> in the GitHub repo. </p>
+                    </div>
                 </div>
                 <div class="text-btn">
                     <a class="btn-link">Close</a>
@@ -315,34 +317,6 @@
         </div>
         
         <div class="section-title">&lt; CONTACT &gt;</div>
-    </section>
-
-    <section>
-
-                
-        <form action="">
-            <label for="first-name">First Name</label>
-            <input type="text" name="first-name" id="first-name" placeholder="Enter your first name...">
-
-            <label for="first-name">First Name</label>
-            <input type="text" name="first-name" id="first-name" placeholder="Enter your first name...">
-
-            <label for="country">Country</label>
-            <select name="country" id="country">
-                <option value="australia" selected>Australia</option>
-                <option value="New Zealand">New Zealand</option>
-                <option value="USA">USA</option>
-                <option value="UK">UK</option>
-                <option value="Canada">Canada</option>
-            </select>
-
-            <label for="subject">Subject</label>
-            <textarea name="subject" id="subject" cols="30" rows="10"></textarea>
-
-            <input type="submit" value="Submit">
-
-        </form>
-
     </section>
 
 
