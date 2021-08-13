@@ -1,11 +1,5 @@
 /* NOTES */
-/* Design proposal: overlay section text and image by using position: absolute on both elements. Adjust the :nth-of-type(odd) selectors to swap the absolute positioning on each page, using the section as its relative position guide */
-/* Design alternative: images can be displayed as flex objects, with alternating flex-start and flex-end positioning. Text is absolute positioned, alternating between left:0 and right:0. This would allow for the text to be overlayed over the image. */
-
 /* NOTES */
-
-
-
 
 /* CSS VARIABLES */
 :root {
@@ -31,15 +25,23 @@
 }
 /* CSS VARIABLES */
 
-
-
-
 /* ANIMATIONS */
 @keyframes bg-animation {
     0% {background-position: left;}
     100% {background-position: right;}
 }
 /* ANIMATIONS */
+
+/*  SWITCHES */
+.gradient-text {
+    /* Animated gradient text */
+    background-image: var(--gradient);
+    background-clip: text;
+    color: transparent;
+    background-size: 400%;
+    animation: bg-animation 5s infinite alternate;
+}
+/*  SWITCHES */
 
 
 
@@ -106,7 +108,7 @@ section {
     /* Size + dimensions */
     height: 75vh;
     width: 60%;
-    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%); /* Allows for the transition animation of clipped frame */
 
     /* Position */
     margin-left: 1.5em;
@@ -135,6 +137,9 @@ section {
     section:nth-of-type(even) .section-image-holder {
         /* Display */
         justify-content: flex-start;
+
+        /* Size + dimensions */
+        clip-path: polygon(0 0, 70% 0%, 100% 100%, 0% 100%); /* Allows for the transition animation of clipped frame */
         
         /* Style */
         filter: drop-shadow(-3em 2em 0em rgba(23, 19, 78, 0.2));
@@ -190,8 +195,12 @@ section {
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
         width: calc(100% - 3em);
         background: white;
-
     }
+
+    .section-image-holder:nth-of-type(even):hover {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    }
+
     .section-image-holder:hover :is(.section-image, .image-overlay) {
         /* animation: animate-clip-path 2s; */
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
@@ -204,29 +213,6 @@ section {
         opacity: 0;
     }
 
-    @keyframes animate-clip-path {
-        0% {
-            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
-        }       
-        100% {
-            clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-        }
-    }
-    /* .section-image-holder:hover {
-        width: calc(100% - 3em);
-        background: white;
-    }
-
-    .section-image-holder:hover :is(.section-image, .image-overlay) {
-        
-        clip-path: none; 
-        transition: 2s;
-        opacity: 0.5;
-    }
-
-    .section-image-holder:hover .image-overlay {
-        opacity: 0.2;
-    } */
 
    .section-image-holder:hover + .section-text > .text {
         /* background-color: rgba(0, 0, 0, 0.5);
@@ -251,15 +237,11 @@ section {
     }
 
 
-
-
-
-
 .section-text {
     /* Temp */  
     /* background: black; */
     /* background-color: rgba(0,0,0,0.5); */
-    border: 1px solid greenyellow;
+    /* border: 1px solid greenyellow; */
     /* opacity: 0.5; */
     transition:height 2s;
     /* Temp */
@@ -267,6 +249,7 @@ section {
     /* Size + dimensions */
     height: 75vh;
     width: calc(70% - 2.7em);
+
 
     /* Position */
     position: absolute;
@@ -287,7 +270,7 @@ section {
 
     .text {
         /* temp */
-        border: 1px solid red;
+        /* border: 1px solid red; */
         /* temp */
 
         /* Display */
@@ -321,6 +304,8 @@ section {
     section:nth-of-type(even) .text {
         text-align: right;
     }
+
+
 
     .text-heading {
         /* temp */
@@ -377,6 +362,7 @@ section {
 
     .hidden {
         display: none;
+        visibility: hidden;
     }
 
 
@@ -408,31 +394,100 @@ section {
         margin: auto;
     }
 
+/* EXPANDED ON PAGE TEXT */
+
     .text-full {
         /* temp */
-        border: 3px solid blue;
-        opacity: 1;
-        color: white;
+        /* height: calc(100% - 2em); /~ matches margins ~/
+        width: calc(100% - 2em);  /~ matches margins ~/*/
+        /* border: 3px solid blue; */
+        /* opacity: 1; */
+        /* color: white; */
+        background-color: white;
         /* temp */
+
+        /* Position */
         position: absolute;
-        height: calc(100% - 2em);
-        width: calc(100% - 2em);
-        /* opacity: 0; */
+        height: calc(100% - 2em); /* matches margins */
+        width: calc(100% - 1.1em);  /* allows image to border */
+        opacity: 0;
         
         display: flex;
         flex-flow: column;
         justify-content: space-between;
     }
 
-    .text-full-header {
-        border: 1px solid greenyellow;
-    }
+/*    .text-full-header {
+        /~ border: 1px solid greenyellow; ~/
+    }*/
 
     .text-full-description {
         /* temp */
-        border: 1px solid red;
+        /* border: 1px solid red; */
+        overflow: hidden;
         /* temp */
+        
+
+        /* Font styling */
+        color: black;
+        font-size: 1.3em;
+        font-weight: 300;
+        line-height: 1.7;
+        
+        
+        /* Position and size */
         height: 100%;
+        width: 100%;
+        margin: 1em 0;
+    }
+
+    .skills {
+        border: 1px solid red;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+
+    .skill-container {
+        border: 1px solid red;
+        display: grid;
+        place-items: center;
+        flex-basis: 0;
+        flex-grow: 1;
+        min-width: 150px;
+    }
+
+    .skill-container > svg {
+        width: 20%;
+        max-width: 100px;
+    }
+
+
+
+    .text-full-img {
+        height: 20vh;
+        width: 50%;
+        object-fit: cover;
+        float: right;
+        opacity: 0.5;
+        overflow: hidden;
+        object-position: center;
+    }
+
+    .text-full-img:nth-of-type(1) {
+        object-position: top;
+    }
+
+
+    .text-full-img:nth-of-type(2) {
+        width: 100%;
+        float: none;
+    }
+
+    .text-full-img:nth-of-type(3) {
+        float: left;
     }
 
     .text-full > .text-btn {
@@ -440,6 +495,8 @@ section {
         margin-top: 0;
     }
 
+
+/* END EXPANDED ON PAGE TEXT */
 
 
 /* Images and SVGs */
@@ -454,10 +511,6 @@ svg {
 
 /* ABSOLUTE POSITIONED CONTENT */
 /* HEADER */
-
-/* :is(.header, .footer) * {
-    border: 1px solid red;
-} */
 
 .header, .footer {
         /* Temp */

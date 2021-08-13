@@ -1,0 +1,29 @@
+/* Corner shape */
+/* clip-path: polygon(95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%, 5% 0); */
+/* Corner shape */
+
+
+/* @keyframes animate-clip-path {
+    0% {
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+    }       
+    100% {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    }
+} */
+
+
+
+/* :is(.header, .footer) * {
+    border: 1px solid red;
+} */
+
+
+
+.test-box {
+    margin: auto;
+    height: 80vh;
+    width: 80vw;
+    background-color: white;
+    clip-path: polygon(95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%, 5% 0);
+}
