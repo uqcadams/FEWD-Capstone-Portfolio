@@ -25,6 +25,15 @@
 }
 /* CSS VARIABLES */
 
+.preload-transitions * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+
 /* ANIMATIONS */
 @keyframes bg-animation {
     0% {background-position: left;}
@@ -44,11 +53,44 @@
 /*  SWITCHES */
 
 
+
+
+
+
+/* Use the colors to transition to */
+.social-media svg {
+    transition: scale 0.5s;
+}
+
+.social-media:hover svg {
+    scale: 1.2;
+}
+
+.social-media stop {
+    -webkit-transition: .4s ease;
+    transition: .4s ease;
+    stop-color: white;
+}
+
+.social-media:hover stop:nth-child(1) {
+    stop-color: #ff9671;
+}
+
+.social-media:hover stop:nth-child(2) {
+    stop-color: #ffc75f;
+}
+
+.social-media:hover stop:nth-child(3) {
+    stop-color: #f9f871;
+}
+
+
 /* MENU */
 
 .menu {
     height: 100vh;
     width: 100vw;
+    max-width: none;
 
     display: flex;
     justify-content: center;
@@ -165,7 +207,7 @@ section {
     border-image-source: var(--gradient);
 
     /* Animation */
-    transition:  2s;
+    /* transition:  2s; */
 }
 
 
@@ -227,17 +269,9 @@ section {
 
 
 .section-text {
-    /* Temp */  
-    /* background: black; */
-    /* background-color: rgba(0,0,0,0.5); */
-    /* opacity: 0.5; */
-    transition:height 2s;
-    /* Temp */
-
     /* Size + dimensions */
     height: 75vh;
     width: calc(70% - 2.7em);
-
 
     /* Position */
     position: absolute;
@@ -337,6 +371,8 @@ section {
 
         /* Blurb width */
         width: 60%;
+
+
     }
 
 
@@ -369,17 +405,18 @@ section {
         margin: auto;
     }
 
+    .text-full .text-btn {
+        width: 7em;
+    }
+
 /* EXPANDED ON PAGE TEXT */
 
     .text-full {
-        /* temp */
-        background-color: white;
-        /* temp */
-
         /* Position */
         position: absolute;
         height: calc(100% - 2em); /* matches margins */
         width: calc(100% - 2em);  /* allows image to border */
+        max-width: 50em;
         opacity: 0;
         
         display: flex;
@@ -387,13 +424,12 @@ section {
         justify-content: space-between;
 
         z-index: -1;
+
+        /* animation */
+        transition: opacity .35s, z-index 1.5s;
     }
 
     .text-full-description {
-        /* temp */
-        overflow: hidden;
-        /* temp */
-
         /* Display */
         display: flex;
         flex-flow: column;
@@ -411,6 +447,14 @@ section {
         height: 100%;
         width: 100%;
         margin: 1em 0;
+    }
+
+    .text-main-description {
+        margin: auto 0;
+    }
+
+    .text-main-description p {
+        margin: 0.5em 0;
     }
 
     .skills {
@@ -437,11 +481,14 @@ section {
     .text-full-img {
         height: 30vh;
         width: 50%;
+
+        
+        margin: 0 1em;
+        opacity: 1;
+        /* border-radius: 2px; */
+        filter: drop-shadow(2px 2px 5px black) brightness(1.5);
         object-fit: cover;
-        margin: 1em;
-        opacity: 0.5;
-        overflow: hidden;
-        object-position: center;
+        object-position: top left;
     }
 
     section:nth-of-type(odd) .text-full-img {
@@ -458,6 +505,10 @@ section {
     .text-full > .text-btn {
         /* Button position */
         margin-top: 0;
+    }
+
+    section:nth-of-type(even) :is(.text-btn, .text-full-header) {
+        margin-left: auto;
     }
 
     #contact > .section-text > .text-full > .text-full-description {
@@ -535,8 +586,23 @@ section {
             margin-right: auto;
 
             /* Font Styling */
+            text-decoration: none;
+            color: white;
             font-weight: bold;
             font-size: 1.5em;
+
+            /* animation */
+            transition: 1s;
+        }
+        
+
+        .logo:hover {
+            /* Animated gradient text */
+            background-image: var(--gradient);
+            background-clip: text;
+            color: transparent;
+            background-size: 400%;
+            animation: bg-animation 5s infinite alternate;
         }
 
         .social-media a {
@@ -555,6 +621,7 @@ section {
             width: 23px;
             cursor: pointer;
         }
+
         .hamburger {
             height: 2px;
             width: 21px;
@@ -627,7 +694,7 @@ section {
         }
 
         section:nth-of-type(odd) .section-title {
-        
+            left: unset;
             right: 1.4em;
 
         }
@@ -648,3 +715,57 @@ section {
     .section-image-holder:hover .image-overlay {
         opacity: 0;
     }
+
+
+
+
+/* TOGGLES */
+/* Notes - image clipping inherited from higher specifity :nth-of-type() */
+/* Notes - transitions are janky and conflicted */
+
+/* Toggles on / off the text blurb */
+.text-blurb-toggle {
+    transition: 1s;
+    opacity: 0;
+    z-index: -1;
+}
+
+.section-image-holder-toggle {
+    width: calc(100% - 3em); 
+    background: white; 
+    clip-path: none !important;
+}
+
+.section-image-toggle {
+    width: 30%; 
+    clip-path: none !important;
+}
+
+.text-full-toggle {
+    transition: 1s;
+    transition-delay: 1.5s;
+    opacity: 1; 
+    z-index: 1;
+}
+
+.section-title-toggle {
+    bottom: 43vh; 
+    transition: 1s
+}
+
+
+@media screen and (min-width: 768px) {
+    :root {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    :root {
+        font-size: 1.4em;
+    }
+    section {
+        max-width: 1920px;
+        margin: 0 auto;
+    }
+}
