@@ -1,5 +1,5 @@
 // Expand DOM contents function for "Learn More"
-const learnMoreExpand = (secImgHolder, secImg, textBlurb, imgOverlay, textFull, sectionTitle) => {
+const learnMoreExpand = (secImgHolder, secImg, textBlurb, imgOverlay, textFull, sectionTitle, secText) => {
     // discarded: contrast too much with gradient text
     // sectionTitle.style = "color: transparent; bottom: 13vh; "
     // sectionTitle.className += " gradient-text";
@@ -11,6 +11,7 @@ const learnMoreExpand = (secImgHolder, secImg, textBlurb, imgOverlay, textFull, 
     secImgHolder.classList.toggle("section-image-holder-toggle");
     secImg.classList.toggle("section-image-toggle");
     imgOverlay.classList.toggle("section-image-toggle");
+    secText.classList.toggle("section-text-toggle");
     textFull.classList.toggle("text-full-toggle");
     sectionTitle.classList.toggle("section-title-toggle");
 }
@@ -23,6 +24,7 @@ for (i = 0; i < learnMore.length; i++ ){
         // Defines card specific DOM elements
         let textBlurb = e.target.closest('.text');
         let section = e.target.closest('section');
+        let secText = section.querySelector('.section-text');
         let secImgHolder = section.querySelector('.section-image-holder');
         let secImg = section.querySelector('.section-image');
         let imgOverlay = section.querySelector('.image-overlay');
@@ -30,7 +32,7 @@ for (i = 0; i < learnMore.length; i++ ){
         let sectionTitle = section.querySelector('.section-title');
     
         // Fires expand function to update DOM
-        learnMoreExpand(secImgHolder, secImg, textBlurb, imgOverlay, textFull, sectionTitle);
+        learnMoreExpand(secImgHolder, secImg, textBlurb, imgOverlay, textFull, sectionTitle, secText);
     })
 }
 

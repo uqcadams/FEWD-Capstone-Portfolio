@@ -112,7 +112,7 @@
 
 .menu > a {
     height: 10vh;
-    font-size: 4em;
+    /* font-size: 4em; */
     font-weight: 600;
     margin: 0.25em;
     text-decoration: underline rgba(0, 0, 0, 0);
@@ -144,6 +144,7 @@ html, body {
 body {
     /* Implements standard font across website */
     font-family: 'Rubik', sans-serif;
+    /* font-size: 1.1em; */
 
     /* Static background visibile across all pages */
     background: linear-gradient(var(--bg-gradient));
@@ -333,7 +334,8 @@ section {
         animation: bg-animation 5s infinite alternate;
 
         /* Font sizing */
-        font-size: 3em;
+        /* font-size: 3em; */
+        /* font-size: 300%; */
     }
 
     /* Standard styling for divider elements */
@@ -366,7 +368,7 @@ section {
     .text-blurb {
         /* Font styling */
         line-height: 1.75;
-        font-size: 1.3em;
+        /* font-size: 1.3em; */
         font-weight: 300;
 
         /* Blurb width */
@@ -430,6 +432,8 @@ section {
     }
 
     .text-full-description {
+        border: 1px solid red;
+
         /* Display */
         display: flex;
         flex-flow: column;
@@ -438,14 +442,17 @@ section {
 
         /* Font styling */
         color: black;
-        font-size: 1.2em;
+        /* font-size: 1.2em; */
         font-weight: 300;
         line-height: 1.7;
         
         
         /* Position and size */
         height: 100%;
-        width: 100%;
+        /* width: 100%;
+        max-width: 600px; */
+        width: min(500px, 100%);
+
         margin: 1em 0;
     }
 
@@ -479,7 +486,7 @@ section {
     }
 
     .text-full-img {
-        height: 30vh;
+        height: 30%;
         width: 50%;
 
         
@@ -530,7 +537,7 @@ section {
         padding-right: 0.5em;
 
         /* Font styling */
-        font-size: 0.75em;
+        /* font-size: 0.75em; */
     }
 
     .contact-form > input, select, textarea {
@@ -708,15 +715,8 @@ section {
 /* HOVERS */
     
     .section-image-holder:hover .section-image {
-        opacity: 0.5;
+        opacity: 0.6;
     }
-
-    
-    .section-image-holder:hover .image-overlay {
-        opacity: 0;
-    }
-
-
 
 
 /* TOGGLES */
@@ -741,6 +741,30 @@ section {
     clip-path: none !important;
 }
 
+
+
+@media screen and (max-width: 500px) {
+    .section-text-toggle {
+        /* Size + dimensions */
+        width: calc(100% - 4em);
+    }
+
+    .section-image-toggle {
+        width: 0%; 
+        clip-path: none !important;
+    }
+    
+    .text-full > .text-btn {
+        /* Button position */
+        margin: 0 auto;
+    }
+
+    .text-full-header {
+        margin: auto;
+    }
+}
+
+
 .text-full-toggle {
     transition: 1s;
     transition-delay: 1.5s;
@@ -756,13 +780,13 @@ section {
 
 @media screen and (min-width: 768px) {
     :root {
-        font-size: 1.2em;
+        /* font-size: 1.2em; */
     }
 }
 
 @media screen and (min-width: 1024px) {
     :root {
-        font-size: 1.4em;
+        /* font-size: 1.4em; */
     }
     section {
         max-width: 1920px;
