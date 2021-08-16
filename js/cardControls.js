@@ -1,12 +1,5 @@
 // Expand DOM contents function for "Learn More"
 const learnMoreExpand = (secImgHolder, secImg, textBlurb, imgOverlay, textFull, sectionTitle, secText) => {
-    // discarded: contrast too much with gradient text
-    // sectionTitle.style = "color: transparent; bottom: 13vh; "
-    // sectionTitle.className += " gradient-text";
-    // discarded: converted to class / toggle
-    // textBlurb.style= "transition: 2s; opacity: 0; z-index: -1";
-    // end discarded
-    
     textBlurb.classList.toggle("text-blurb-toggle");
     secImgHolder.classList.toggle("section-image-holder-toggle");
     secImg.classList.toggle("section-image-toggle");
@@ -30,6 +23,7 @@ for (i = 0; i < learnMore.length; i++ ){
         let imgOverlay = section.querySelector('.image-overlay');
         let textFull = section.querySelector('.text-full');
         let sectionTitle = section.querySelector('.section-title');
+        console.log(sectionTitle);
     
         // Fires expand function to update DOM
         learnMoreExpand(secImgHolder, secImg, textBlurb, imgOverlay, textFull, sectionTitle, secText);
