@@ -437,11 +437,6 @@ section {
     }
 
 
-    .text-full-description {
-        
-        
-    }
-
     .text-main-description {
         text-overflow: ellipsis;
     }
@@ -696,6 +691,10 @@ section {
             }
 
             .nav-container:hover > .nav {
+                height: 50px;
+            }
+
+            .currentNav {
                 height: 50px;
             }
 
