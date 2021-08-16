@@ -10,13 +10,18 @@ const options = {
 const sectionTitleObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         currentSection = entry.target;
+        console.log(currentSection);
         currentSectionIndex = pageIndex.indexOf(currentSection.textContent);
         
         if (entry.isIntersecting === true) {
             navIndicators[currentSectionIndex].classList.toggle("currentNav");
         } else {
             navIndicators[currentSectionIndex].classList.remove("currentNav");
-
+            let section = currentSection.closest('section');
+            let learnMore = section.querySelector('.text-full .text-btn');
+            if (!learnMore === null) {
+                learnMore.click();
+            };
         }
     });
 }, options);
