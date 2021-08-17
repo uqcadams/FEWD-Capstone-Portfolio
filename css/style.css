@@ -40,9 +40,11 @@
 /* ANIMATIONS */
 
 /*  SWITCHES */
-.gradient-text {
+.gradient-text { 
     /* Animated gradient text */
     background-image: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
     background-clip: text;
     color: transparent;
     background-size: 400%;
@@ -160,6 +162,8 @@ section {
     .logo:hover {
         /* Animated gradient text */
         background-image: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
         background-clip: text;
         color: transparent;
         background-size: 400%;
@@ -478,6 +482,8 @@ section {
     .text-heading {
         /* Animated gradient text */
         background-image: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
         background-clip: text;
         color: transparent;
         background-size: 400%;
@@ -511,7 +517,7 @@ section {
         border-radius: 10px;
 
         /* Divider spacing */
-        margin: 10x 5px;
+        margin: 5px;
     }
 
     /* Positioning for right divider */
