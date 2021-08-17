@@ -22,16 +22,10 @@ const closeHamburgerMenu = () => {
 }
 
 hamburger.addEventListener('click', (e) => {
-    console.log('hamburgers go on top');
-    // let section = e.target.closest('section');
-    // let title = section.query
-    // title.style.color = "red";
     if (!menu.matches('.open')) {
-        console.log('opening now!');
         openHamburgerMenu();
     } 
     else if (menu.matches('.open')){
-        console.log('closing now!');
         closeHamburgerMenu();
     }
 })
